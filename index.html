@@ -16,15 +16,15 @@
   <script src="js/services/configValue.js"></script>
   <script src="js/filters/ellipsisFilter.js"></script>
   <script src="js/directives/uiAlertDirective.js"></script>
+  <script src="js/directives/uiDateDirective.js"></script>
   <!--<script src="lib/angular/angular-locale_pt-br.js"></script> -->
 </head>
 <body ng-controller="phoneListCtrl">
     <div class="jumbotron">
         <h3 ng-bind="app"></h3>
-
-
+        
         <ui-alert ng-hide="!error" title="An eror occurred!"> {{error}} </ui-alert>
-       
+        
         <input class="form-control" type="text" ng-model="searchField" placeholder="What's do you want?"/>
         <table class="table" ng-show="contacts.length > 0">
             <tr>
@@ -50,6 +50,7 @@
         <form name="formContact">
           <input class="form-control" type="text" ng-model="contact.name" name="name" placeholder="Name" ng-required="true" ng-minlength="10"/>
           <input class="form-control" type="text" ng-model="contact.phone" name="phone" placeholder="Phone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/"/>
+          <input class="form-control" type="text" ng-model="contact.date" name="date" placeholder="Date" ui-date/>
           <select class="form-control" ng-model="contact.operator" ng-options="(operator.name + '( ' + (operator.cost | currency) + ' )')  group by operator.category for operator in operators | orderBy:'name'"> 
              <option value="">Selecione uma Operadora</option> 
           </select>
