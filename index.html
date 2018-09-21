@@ -2,6 +2,8 @@
 <head>
   <title>Phone List</title>
   <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/ui.css">
 
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular/angular-messages.min.js"></script>
@@ -13,12 +15,16 @@
   <script src="js/config/serialGeneratorConfig.js"></script>
   <script src="js/services/configValue.js"></script>
   <script src="js/filters/ellipsisFilter.js"></script>
+  <script src="js/directives/uiAlertDirective.js"></script>
   <!--<script src="lib/angular/angular-locale_pt-br.js"></script> -->
-  <link rel="stylesheet" href="css/app.css">
 </head>
 <body ng-controller="phoneListCtrl">
     <div class="jumbotron">
         <h3 ng-bind="app"></h3>
+
+
+        <ui-alert ng-hide="!error" title="An eror occurred!"> {{error}} </ui-alert>
+       
         <input class="form-control" type="text" ng-model="searchField" placeholder="What's do you want?"/>
         <table class="table" ng-show="contacts.length > 0">
             <tr>

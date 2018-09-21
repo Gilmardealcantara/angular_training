@@ -6,7 +6,7 @@ angular.module("phoneList").controller("phoneListCtrl",  function($scope, contac
         contactsAPI.getContacts().then(function (response){
             $scope.contacts = response.data     
          },function (error){
-            $scope.message = "Error Contacts: " +  error;      
+            $scope.error = "Error Contacts: " +  error.statusText;      
          });
     }
     var loadOperators = function(){
