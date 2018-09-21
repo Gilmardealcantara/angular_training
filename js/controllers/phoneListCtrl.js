@@ -1,4 +1,4 @@
-angular.module("phoneList").controller("phoneListCtrl",  function($scope, $http, contactsAPI, operatorsAPI, serialGenerator){
+angular.module("phoneList").controller("phoneListCtrl",  function($scope, contactsAPI, operatorsAPI, serialGenerator){
     $scope.app = "Phone List";
     $scope.operators = [];
     $scope.contacts = [];
